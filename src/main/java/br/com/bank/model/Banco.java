@@ -22,10 +22,9 @@ public class Banco {
     }
     public Conta pesquisarContaDoCliente(String cpf) {
         Conta c = null;
-        for (int i = 0; i < contas.size(); i++) {
-            if (contas.get(i).getCpf().equals(cpf)) {
-                c = contas.get(i);
-            }
+        List<Conta> f = filtrarContas(ctn -> ctn.getCpf() == cpf);
+        if(f.size() != 0) {
+            c = f.get(0);
         }
         return c;
     }
